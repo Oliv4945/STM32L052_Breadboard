@@ -96,10 +96,10 @@ int main(void)
   sDate.Month = RTC_MONTH_NOVEMBER;
   sDate.Date = 29;
   sDate.Year = 16;
-  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK) {
+  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK) {
     Error_Handler();
   }
-  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK) {
+  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK) {
     Error_Handler();
   }
 
@@ -113,8 +113,8 @@ int main(void)
 
   /* USER CODE BEGIN 3 */
     // RTC
-    HAL_RTC_GetTime(&hrtc, &sTime, FORMAT_BCD);
-    HAL_RTC_GetDate(&hrtc, &sDate, FORMAT_BCD);
+    HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
+    HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
     HAL_printf("Date : %02d/%02d/20%02d %02d:%02d:%02d\n", sDate.Date, sDate.Month, sDate.Year, sTime.Hours, sTime.Minutes, sTime.Seconds);
 
     HAL_printf("\n");
