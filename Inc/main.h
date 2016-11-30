@@ -41,6 +41,8 @@
 
 /* Private define ------------------------------------------------------------*/
 
+#define MOSFET_Pin GPIO_PIN_8
+#define MOSFET_GPIO_Port GPIOA
 #define WS2812_Pin GPIO_PIN_9
 #define WS2812_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */

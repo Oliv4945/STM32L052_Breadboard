@@ -125,7 +125,8 @@ int main(void)
     HAL_printf("Date : %02d/%02d/20%02d %02d:%02d:%02d\n", sDate.Date, sDate.Month, sDate.Year, sTime.Hours, sTime.Minutes, sTime.Seconds);
 
     HAL_printf("\n");
-    HAL_Delay(200);
+    HAL_GPIO_TogglePin(MOSFET_GPIO_Port, MOSFET_Pin);
+    HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 
