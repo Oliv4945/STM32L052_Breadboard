@@ -103,6 +103,13 @@ int main(void)
     Error_Handler();
   }
 
+  // WS2812
+  uint8_t green[] = {0xFF, 0x00, 0x00};
+  uint8_t red[]   = {0x00, 0xFF, 0x00};
+  uint8_t blue[]  = {0x00, 0x00, 0xFF};
+  uint8_t black[] = {0x00, 0x00, 0x00};
+  ws2812_sendarray(red, 3);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

@@ -41,6 +41,8 @@
 
 /* Private define ------------------------------------------------------------*/
 
+#define WS2812_Pin GPIO_PIN_9
+#define WS2812_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <targetDefinitions xmlns="http://openstm32.org/stm32TargetDefinitions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openstm32.org/stm32TargetDefinitions stm32TargetDefinitions.xsd">
-  <board id="stm32l052_bb_tests">
+  <board id="STM32L052_BB_Tests">
     <name>STM32L052_BB_Tests</name>
     <mcuId>stm32l052k8tx</mcuId>
     <dbgIF>SWD</dbgIF>
