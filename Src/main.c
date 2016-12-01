@@ -68,6 +68,15 @@ int main(void)
   RTC_TimeTypeDef sTime;
   RTC_DateTypeDef sDate;
 
+  // WS2812
+  uint8_t green[] = {0x1F, 0x00, 0x00};
+  uint8_t red[]   = {0x00, 0x1F, 0x00};
+  uint8_t blue[]  = {0x00, 0x00, 0x1F};
+  uint8_t black[] = {0x00, 0x00, 0x00};
+  //uint8_t colors[3][3] = { {0x1F, 0x00, 0x00}, {0x00, 0x1F, 0x00}, {0x00, 0x00, 0x1F} };
+  uint8_t *colors[] = { green, red, blue };
+  uint8_t colorsIndex = 0;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -103,12 +112,7 @@ int main(void)
     Error_Handler();
   }
 
-  // WS2812
-  uint8_t green[] = {0xFF, 0x00, 0x00};
-  uint8_t red[]   = {0x00, 0xFF, 0x00};
-  uint8_t blue[]  = {0x00, 0x00, 0xFF};
-  uint8_t black[] = {0x00, 0x00, 0x00};
-  ws2812_sendarray(red, 3);
+
 
   /* USER CODE END 2 */
 
@@ -126,7 +130,10 @@ int main(void)
 
     HAL_printf("\n");
     HAL_GPIO_TogglePin(MOSFET_GPIO_Port, MOSFET_Pin);
+    ws2812_sendarray(colors[colorsIndex], 3);
+    colorsIndex = (colorsIndex+1) % 3;
     HAL_Delay(1000);
+
   }
   /* USER CODE END 3 */
 
@@ -151,10 +158,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = 16;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLLMUL_4;
-  RCC_OscInitStruct.PLL.PLLDIV = RCC_PLLDIV_2;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -164,12 +168,12 @@ void SystemClock_Config(void)
     */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {
     Error_Handler();
   }
