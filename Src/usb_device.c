@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : RTC.h
-  * Description        : This file provides code for the configuration
-  *                      of the RTC instances.
+  * @file           : USB_DEVICE  
+  * @version        : v1.0_Cube
+  * @brief          : This file implements the USB Device 
   ******************************************************************************
   *
   * Copyright (c) 2016 STMicroelectronics International N.V. 
@@ -40,41 +40,29 @@
   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */
-/* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __rtc_H
-#define __rtc_H
-#ifdef __cplusplus
- extern "C" {
-#endif
+*/
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32l0xx_hal.h"
-#include "main.h"
 
-/* USER CODE BEGIN Includes */
+#include "usb_device.h"
+#include "usbd_core.h"
+#include "usbd_desc.h"
+#include "usbd_hid.h"
 
-/* USER CODE END Includes */
+/* USB Device Core handle declaration */
+USBD_HandleTypeDef hUsbDeviceFS;
 
-extern RTC_HandleTypeDef hrtc;
+/* init function */				        
+void MX_USB_DEVICE_Init(void)
+{
+  /* Init Device Library,Add Supported Class and Start the library*/
+  USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS);
 
-/* USER CODE BEGIN Private defines */
+  USBD_RegisterClass(&hUsbDeviceFS, &USBD_HID);
 
-/* USER CODE END Private defines */
+  USBD_Start(&hUsbDeviceFS);
 
-extern void Error_Handler(void);
-
-void MX_RTC_Init(void);
-
-/* USER CODE BEGIN Prototypes */
-
-/* USER CODE END Prototypes */
-
-#ifdef __cplusplus
 }
-#endif
-#endif /*__ rtc_H */
-
 /**
   * @}
   */

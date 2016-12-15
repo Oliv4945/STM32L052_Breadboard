@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : RTC.h
-  * Description        : This file provides code for the configuration
-  *                      of the RTC instances.
+  * @file           : usbd_desc.h
+  * @version        : v1.0_Cube
+  * @brief          : Header for usbd_desc file.
   ******************************************************************************
   *
   * Copyright (c) 2016 STMicroelectronics International N.V. 
@@ -40,47 +40,75 @@
   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */
+*/
+
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __rtc_H
-#define __rtc_H
+#ifndef __USBD_DESC__H__
+#define __USBD_DESC__H__
+
 #ifdef __cplusplus
  extern "C" {
 #endif
-
 /* Includes ------------------------------------------------------------------*/
-#include "stm32l0xx_hal.h"
-#include "main.h"
+#include "usbd_def.h"
 
-/* USER CODE BEGIN Includes */
+/** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
+  * @{
+  */
+  
+/** @defgroup USB_DESC
+  * @brief general defines for the usb device library file
+  * @{
+  */ 
 
-/* USER CODE END Includes */
+/** @defgroup USB_DESC_Exported_Defines
+  * @{
+  */
 
-extern RTC_HandleTypeDef hrtc;
+/**
+  * @}
+  */ 
 
-/* USER CODE BEGIN Private defines */
+/** @defgroup USBD_DESC_Exported_TypesDefinitions
+  * @{
+  */
+/**
+  * @}
+  */ 
 
-/* USER CODE END Private defines */
+/** @defgroup USBD_DESC_Exported_Macros
+  * @{
+  */ 
+/**
+  * @}
+  */ 
 
-extern void Error_Handler(void);
+/** @defgroup USBD_DESC_Exported_Variables
+  * @{
+  */ 
+extern USBD_DescriptorsTypeDef FS_Desc;
+/**
+  * @}
+  */ 
 
-void MX_RTC_Init(void);
-
-/* USER CODE BEGIN Prototypes */
-
-/* USER CODE END Prototypes */
-
+/** @defgroup USBD_DESC_Exported_FunctionsPrototype
+  * @{
+  */ 
+  
+/**
+  * @}
+  */ 
 #ifdef __cplusplus
 }
 #endif
-#endif /*__ rtc_H */
+
+#endif /* __USBD_DESC_H */
 
 /**
   * @}
-  */
+  */ 
 
 /**
-  * @}
-  */
-
+* @}
+*/ 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -40,7 +40,7 @@
 									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Device/ST/STM32L0xx/Include" />
 									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Include" />
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32L052_BB_Tests/light_ws2812/light_ws2812_ARM}&quot;" />
-								</option>
+								<listOptionValue builtIn="false" value="../Middlewares/ST/STM32_USB_Device_Library/Core/Inc" /><listOptionValue builtIn="false" value="../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc" /></option>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1326497902" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__weak=&quot;__attribute__((weak))&quot;" />
 									<listOptionValue builtIn="false" value="__packed=&quot;__attribute__((__packed__))&quot;" />
@@ -76,7 +76,7 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<sourceEntries>
+					<sourceEntries><entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Middlewares" />
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers" />
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc" />
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src" />

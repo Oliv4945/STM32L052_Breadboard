@@ -1,10 +1,14 @@
 /**
   ******************************************************************************
-  * @file    stm32l0xx_it.h
-  * @brief   This file contains the headers of the interrupt handlers.
+  * @file    stm32l0xx_hal_pcd.h
+  * @author  MCD Application Team
+  * @version V1.7.0
+  * @date    31-May-2016
+  * @brief   Header file of PCD HAL module.
   ******************************************************************************
+  * @attention
   *
-  * COPYRIGHT(c) 2016 STMicroelectronics
+  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -29,33 +33,58 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */
+  */ 
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32L0xx_IT_H
-#define __STM32L0xx_IT_H
+#ifndef __STM32L0xx_HAL_PCD_EX_H
+#define __STM32L0xx_HAL_PCD_EX_H
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-/* Exported macro ------------------------------------------------------------*/
-/* Exported functions ------------------------------------------------------- */
+#include "stm32l0xx_hal_def.h"  
+   
+/** @addtogroup STM32L0xx_HAL_Driver
+  * @{
+  */
 
-void NMI_Handler(void);
-void HardFault_Handler(void);
-void SVC_Handler(void);
-void PendSV_Handler(void);
-void SysTick_Handler(void);
-void USB_IRQHandler(void);
+/** @defgroup PCDEx PCDEx
+  * @{
+  */ 
+
+/* Exported functions --------------------------------------------------------*/
+
+/** @defgroup PCDEx_Exported_Functions PCDEx Exported Functions
+  * @{
+  */
+
+/** @defgroup PCDEx__Exported_Functions_Group1 Initialization and de-initialization functions
+ *  @brief    Initialization and Configuration functions
+ */
+HAL_StatusTypeDef HAL_PCDEx_PMAConfig(PCD_HandleTypeDef *hpcd, 
+                                     uint16_t ep_addr,
+                                     uint16_t ep_kind,
+                                     uint32_t pmaadress);
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */ 
+
+/**
+  * @}
+  */ 
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __STM32L0xx_IT_H */
+
+#endif /* __STM32L0xx_HAL_PCD_EX_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+

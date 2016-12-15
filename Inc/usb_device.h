@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : RTC.h
-  * Description        : This file provides code for the configuration
-  *                      of the RTC instances.
+  * @file           : USB_DEVICE
+  * @version        : v1.0_Cube
+  * @brief          : Header for usb_device file.
   ******************************************************************************
   *
   * Copyright (c) 2016 STMicroelectronics International N.V. 
@@ -40,40 +40,28 @@
   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */
+*/
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __rtc_H
-#define __rtc_H
+#ifndef __usb_device_H
+#define __usb_device_H
 #ifdef __cplusplus
  extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
+#include "stm32l0xx.h"
 #include "stm32l0xx_hal.h"
-#include "main.h"
+#include "usbd_def.h"
 
-/* USER CODE BEGIN Includes */
+extern USBD_HandleTypeDef hUsbDeviceFS;
 
-/* USER CODE END Includes */
-
-extern RTC_HandleTypeDef hrtc;
-
-/* USER CODE BEGIN Private defines */
-
-/* USER CODE END Private defines */
-
-extern void Error_Handler(void);
-
-void MX_RTC_Init(void);
-
-/* USER CODE BEGIN Prototypes */
-
-/* USER CODE END Prototypes */
+/* USB_Device init function */	
+void MX_USB_DEVICE_Init(void);
 
 #ifdef __cplusplus
 }
 #endif
-#endif /*__ rtc_H */
+#endif /*__usb_device_H */
 
 /**
   * @}
