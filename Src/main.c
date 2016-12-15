@@ -88,18 +88,29 @@ int main(void)
   uint8_t *colors[] = { green, red, blue };
   uint8_t colorsIndex = 0;
 
-  // HID Mouse
-  struct mouseHID_t {
-      uint8_t buttons;
-      int8_t x;
-      int8_t y;
-      int8_t wheel;
+  // HID Keyboard
+  struct keyboardHID_t {
+      uint8_t id;
+      uint8_t modifiers;
+      uint8_t key1;
+      uint8_t key2;
+      uint8_t key3;
   };
-  struct mouseHID_t mouseHID;
-  mouseHID.buttons = 0;
-  mouseHID.x = 10;
-  mouseHID.y = 0;
-  mouseHID.wheel = 0;
+  struct keyboardHID_t keyboardHID;
+  keyboardHID.id = 1;
+  keyboardHID.modifiers = 0;
+  keyboardHID.key1 = 0;
+  keyboardHID.key2 = 0;
+  keyboardHID.key3 = 0;
+  // HID Media
+  struct mediaHID_t {
+    uint8_t id;
+    uint8_t keys;
+  };
+  struct mediaHID_t mediaHID;
+  mediaHID.id = 2;
+  mediaHID.keys = 0;
+
 
   /* USER CODE END 1 */
 
@@ -159,10 +170,21 @@ int main(void)
     colorsIndex = (colorsIndex+1) % 3;
     HAL_Delay(1000);
 
-    // Send HID repport
-    mouseHID.x = 10;
-    USBD_HID_SendReport(&hUsbDeviceFS, &mouseHID, sizeof(struct mouseHID_t));
+    // Send HID report
+    mediaHID.keys = USB_HID_VOL_DEC;
+    USBD_HID_SendReport(&hUsbDeviceFS, &mediaHID, sizeof(struct mediaHID_t));
+    HAL_Delay(30);
+    mediaHID.keys = 0;
+    USBD_HID_SendReport(&hUsbDeviceFS, &mediaHID, sizeof(struct mediaHID_t));
+    HAL_Delay(30);
 
+    keyboardHID.modifiers = USB_HID_MODIFIER_RIGHT_SHIFT;
+    keyboardHID.key1 = USB_HID_KEY_L;
+    USBD_HID_SendReport(&hUsbDeviceFS, &keyboardHID, sizeof(struct keyboardHID_t));
+    HAL_Delay(30);
+    keyboardHID.modifiers = 0;
+    keyboardHID.key1 = 0;
+    USBD_HID_SendReport(&hUsbDeviceFS, &keyboardHID, sizeof(struct keyboardHID_t));
   }
   /* USER CODE END 3 */
 
