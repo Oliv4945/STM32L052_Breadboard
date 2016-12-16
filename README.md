@@ -17,6 +17,14 @@ Small breadboard compatible development board designed for STM32L052, but all ST
 # Toolchain
 Example projets are for Eclipse/OpenSTM32/GCC-ARM, also CubeMX project file is given so it should be easy to generate project files for other IDE.
 
+# Code examples
+There is few snippets of code in master branch, regarding:
+* WS2812b led
+* MOSFET control
+* RTC  
+
+In USB_HID branch, there is custom USB_HID device which allows consumer device (media keys) + keyboard
+
 # Others
-More info [here](http://notes.iopush.net/stm32l052-dev-board).  
+More info [here](http://notes.iopush.net/stm32l052-development-board/).  
 Hardware is under CC Attribution-ShareAlike 3.0 license.
