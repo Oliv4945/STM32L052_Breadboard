@@ -23,7 +23,7 @@ There is few snippets of code in master branch, regarding:
 * MOSFET control
 * RTC  
 
-I will also add a branch with custom USB HD device.
+In USB_HID branch, there is custom USB_HID device which allows consumer device (media keys) + keyboard
 
 # Others
 More info [here](http://notes.iopush.net/stm32l052-development-board/).  
