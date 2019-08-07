@@ -11,7 +11,7 @@ Small breadboard compatible development board designed for STM32L052, but all ST
 * 200 to 300 mA mosfet in order to control a more power or other voltages
 * Reset button
 * Breadboard friendly
-* "FDTI" pinout connector for serial communications, and to try ST serial bootloader
+* "FTDI" pinout connector for serial communications, and to try ST serial bootloader
 * All components on one side, so the board can be easily reflowed with hotplate
 
 # Toolchain
